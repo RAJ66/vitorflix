@@ -51,7 +51,7 @@ function RegistrationCategory() {
 
         <FormField
           label="Description"
-          type="text"
+          type="textarea"
           name="description"
           value={values.description}
           onChange={handleChange}
@@ -67,7 +67,7 @@ function RegistrationCategory() {
         <Button>Register</Button>
       </form>
       <ul>
-        {categories.map((category, index) => <li key={`${category}${index}`}>{category.name}</li>)}
+        {categories.map((category, index) => <li key={`${category.name}${index}`}>{category.name}</li>)}
       </ul>
 
       <Link to="/">Go to home</Link>
