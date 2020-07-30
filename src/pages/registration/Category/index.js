@@ -28,19 +28,17 @@ function RegistrationCategory() {
 
   useEffect(() => {
     setTimeout(() => {
-      setCategories([...categories, {
-        "id": 1,
-        "name": "Front End",
-        "description": "Description",
-        "cor": "#6BD1FF"
-      },
-      {
-        "id": 2,
-        "name": "Back End",
-        "description": "Description",
-        "cor": "#6BD1FF"
-      }]);
-    }, 4 * 1000)
+      const URL = "http://localhost:8080/category"
+      fetch(URL).then(async (res) => {
+        if (res.ok) {
+          const data = await res.json();
+          setCategories(data);
+          return;
+        }
+        throw new Error('Not data');
+      })
+
+    })
   }, [])
 
   return (
