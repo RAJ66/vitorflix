@@ -28,7 +28,8 @@ function RegistrationCategory() {
 
   useEffect(() => {
     setTimeout(() => {
-      const URL = "https://vitorflix.herokuapp.com/category"
+      const URL = window.location.hostname.includes('localhost') ?
+        "https://localhost:8080/category" : "https://vitorflix.herokuapp.com/category"
       fetch(URL).then(async (res) => {
         if (res.ok) {
           const data = await res.json();
