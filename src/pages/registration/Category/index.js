@@ -4,7 +4,8 @@ import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from "../../../components/Button"
 import useForm from '../../../hooks/useForm'
-
+import URL from "../../../config/"
+import categoryRepo from "../../../repositories/category"
 
 function RegistrationCategory() {
   const startValues = {
@@ -21,16 +22,6 @@ function RegistrationCategory() {
 
   useEffect(() => {
     setTimeout(() => {
-      const URL = window.location.hostname.includes('localhost') ?
-        "http://localhost:8080/category" : "https://vitorflix.herokuapp.com/category"
-      fetch(URL).then(async (res) => {
-        if (res.ok) {
-          const data = await res.json();
-          setCategories(data);
-          return;
-        }
-        throw new Error('Not data');
-      })
 
     })
   }, [])
