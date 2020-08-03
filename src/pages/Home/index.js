@@ -13,6 +13,7 @@ function Home() {
   useEffect(() => {
     categoryRepo.getAllWithVideo()
       .then((res) => {
+        console.log(res)
         setCategories(res)
       })
       .catch((err) => {

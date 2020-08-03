@@ -1,6 +1,6 @@
 const URL = window.location.hostname.includes('localhost')
   ? 'http://localhost:8080'
-  : 'https://devsoutinhoflix.herokuapp.com';
+  : 'https://vitorflix.herokuapp.com';
 
 export default {
   URL

@@ -1,24 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import PageDefault from "../../../components/PageDefault";
 import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm'
 import Button from "../../../components/Button"
 import createVideo from "../../../repositories/video"
+import categoryRepo from "../../../repositories/category"
+
 
 function RegistrationVideo() {
   const history = useHistory()
-  const { values, handleChange, clearForm } = useForm({})
+  const [categories, setCategories] = useState([]);
 
+  const { values, handleChange, clearForm } = useForm({})
+  useEffect(() => {
+    categoryRepo.getAll().then((res) => {
+      setCategories(res)
+
+    })
+  }, [])
+
+  console.log(categories)
   return (
     <PageDefault >
       <h1>Registration Video</h1>
       <form onSubmit={(event) => {
         event.preventDefault();
+
+        const categoriaId = categories.find((categoria) => {
+          return categoria.titulo === values.categoria;
+        });
+
+        console.log(categoriaId)
         createVideo.create({
-          titulo: values.url,
+          titulo: values.titulo,
           url: values.url,
-          categoriaId: 1
+          categoriaId: categoriaId.id
         }).then(() => {
           console.log('Success');
           history.push('/');

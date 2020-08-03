@@ -17,13 +17,18 @@ function RegistrationCategory() {
   const { values, handleChange, clearForm } = useForm(startValues)
   const [categories, setCategories] = useState([]);
 
-
-
   useEffect(() => {
-    setTimeout(() => {
+    const URL = window.location.hostname.includes("localhost")
+      ? "http://localhost:8080/category"
+      : "https://vitorflix.herokuapp.com/category"
 
-    })
+    fetch(URL)
+      .then(async (serverResponse) => {
+        const response = await serverResponse.json();
+        setCategories(response)
+      });
   }, [])
+
 
   return (
     <PageDefault>
