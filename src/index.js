@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import RegistrationVideo from "./pages/registration/Video";
 import RegistrationCaterogy from "./pages/registration/Category";
+import Page404 from "./pages/Page404";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -14,7 +15,7 @@ ReactDOM.render(
 
       <Route path="/registration/category" component={RegistrationCaterogy} />
 
-      <Route component={() => <h1>Error 404</h1>} />
+      <Route component={Page404} />
     </Switch>
   </BrowserRouter>,
 
