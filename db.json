@@ -30,12 +30,12 @@
     {
       "id": 4,
       "titulo": "Filmes",
-      "cor": "orange"
+      "cor": "#FFA500"
     },
     {
       "id": 5,
       "titulo": "Games",
-      "cor": "red",
+      "cor": "#FF0000",
       "link_extra": {
         "text": "Formação de Jogos na Alura",
         "url": "https://www.alura.com.br/cursos-online-front-end"

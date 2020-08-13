@@ -5,6 +5,7 @@ import FormField from '../../../components/FormField';
 import Button from "../../../components/Button"
 import useForm from '../../../hooks/useForm'
 
+import './styles.css'
 
 function RegistrationCategory() {
   const startValues = {
@@ -74,9 +75,25 @@ function RegistrationCategory() {
       {categories.length === 0 &&
         <div>Loading...</div>
       }
-      <ul>
-        {categories.map((category, index) => <li key={`${category.titulo}${index}`}>{category.titulo}</li>)}
-      </ul>
+      <table className="table">
+        <thead>
+          <tr>
+            <th><h2>Category</h2></th>
+            <th><h2>Description</h2></th>
+            <th><h2>Color</h2></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {categories.map((category, index) =>
+            <tr>
+              <td>{category.titulo}</td>
+              {category.link_extra ? <td>{category.link_extra.text}</td> : <td></td>}
+              <td> <input type="color" value={category.cor} disabled /></td>
+
+            </tr>)}
+        </tbody>
+      </table>
 
       <Link to="/">Go to home</Link>
     </PageDefault>
