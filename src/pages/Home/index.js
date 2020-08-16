@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import "./styles.css";
 import categoryRepo from "../../repositories/category"
 import PageDefault from "../../components/PageDefault"
+import Loading from "../../components/Loading";
 
 function Home() {
   const [dadosIniciais, setCategories] = useState([]);
@@ -29,7 +30,7 @@ function Home() {
     <PageDefault paddingAll={0} >
 
 
-      {dadosIniciais.length === 0 && (<div>Loading ...</div>)}
+      {dadosIniciais.length === 0 && (<Loading />)}
 
       {dadosIniciais.map((categoria, indice) => {
         if (indice === 0) {

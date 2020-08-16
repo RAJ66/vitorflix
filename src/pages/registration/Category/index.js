@@ -4,6 +4,7 @@ import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from "../../../components/Button"
 import useForm from '../../../hooks/useForm'
+import Loading from '../../../components/Loading';
 
 import './styles.css'
 
@@ -73,7 +74,7 @@ function RegistrationCategory() {
       </form>
 
       {categories.length === 0 &&
-        <div>Loading...</div>
+        <Loading />
       }
       <table className="table">
         <thead>
